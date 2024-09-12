@@ -1,14 +1,14 @@
 export const lightTheme = {
   colors: {
     surface: {
-      primary: "#ffffff",
-      secondary: "#f0f0f0",
-      tertiary: "#d0d0d0",
+      primary: "#340f61",
+      secondary: "#6366f1",
+      tertiary: " #3b82f6",
     },
     info: { primary: "#0070f3" },
     text: {
-      primary: "#000000",
-      secondary: "#00000090",
+      primary: "#1E1E1E",
+      secondary: "#00000060",
       tertiary: "#00000040",
       invertPrimary: "#ffffff",
       invertSecondary: "#ffffff60",
