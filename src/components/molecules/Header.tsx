@@ -7,6 +7,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import Body from "../atoms/typography/Body";
 import ThemeToggle from "./Themetoggle";
 import { FaBars } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const { theme, activeTheme } = useTheme();
@@ -16,7 +17,7 @@ const Header = () => {
   const headingOptions = [
     { id: 0, title: "Home", onClick: () => {} },
     { id: 1, title: "Tutorial", onClick: () => {} },
-    { id: 2, title: "Blog", onClick: () => {} },
+    { id: 2, title: "About", onClick: () => {} },
     { id: 3, title: "Contact", onClick: () => {} },
   ];
 
@@ -77,25 +78,34 @@ const Header = () => {
         ))}
         <ThemeToggle />
       </div>
-      {isMenuOpen && (
-        <div
-          ref={menuRef}
-          className="absolute top-16 right-6 bg-white shadow-lg rounded-lg px-8 py-4 md:hidden z-10"
-        >
-          {headingOptions?.map((item) => (
-            <div key={item?.id} className="py-2">
-              <Body
-                body={item?.title}
-                textColor={theme?.colors?.text?.primary}
-                size="medium"
-                variant="bold"
-                className={`cursor-pointer`}
-              />
-            </div>
-          ))}
-          <ThemeToggle />
-        </div>
-      )}
+      {/* {isMenuOpen && ( */}
+      <motion.nav
+        animate={isMenuOpen ? "open" : "closed"}
+        variants={{
+          open: { opacity: 1, y: 0 },
+          closed: { opacity: 0, y: "100%" },
+        }}
+        ref={menuRef}
+        style={{
+          backgroundImage: `linear-gradient(to top, ${theme?.colors?.surface?.secondary}, ${theme?.colors?.surface?.tertiary})`,
+          borderColor: theme?.colors?.text?.invertPrimary,
+        }}
+        className={`absolute top-16 right-6 bg-white shadow-lg rounded-lg px-8 py-4 md:hidden z-10 border-2 `}
+      >
+        {headingOptions?.map((item) => (
+          <div key={item?.id} className="py-2">
+            <Body
+              body={item?.title}
+              textColor={theme?.colors?.text?.primary}
+              size="medium"
+              variant="bold"
+              className={`cursor-pointer`}
+            />
+          </div>
+        ))}
+        <ThemeToggle />
+      </motion.nav>
+      {/* )} */}
     </div>
   );
 };
