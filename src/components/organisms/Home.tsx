@@ -11,6 +11,7 @@ import {
   ELECTRO_W_BG,
 } from "@/assests/imageContants";
 import { TOPMAT_LOGO } from "@/assests/svgConstants";
+import Body from "../atoms/typography/Body";
 
 const Home = () => {
   const { activeTheme, theme } = useTheme();
@@ -36,6 +37,12 @@ const Home = () => {
         height={200}
         width={200}
         className="mx-auto"
+      />
+      <Body
+        size="large"
+        className="text-center"
+        variant="semibold"
+        body="Dive into a world of electronics with hands-on projects, tutorials, and in-depth explanations. Whether you're a beginner or an enthusiast, explore resources to power up your skills and bring your ideas to life!"
       />
     </div>
   );
