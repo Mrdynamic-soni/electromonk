@@ -163,7 +163,7 @@ const Contact: React.FC = () => {
       platform: "Github",
       icon: GITHUB_LOGO,
       onPressAction: () => {
-        window.open("https://www.telegram.org", "_blank");
+        window.open("https://github.com/Mrdynamic-soni", "_blank");
       },
     },
   ];

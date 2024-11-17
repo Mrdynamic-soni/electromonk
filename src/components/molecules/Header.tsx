@@ -1,24 +1,27 @@
 "use client";
-
-import { ELECRO_LOGHT_LOGO, ELECRO_LOGO } from "@/assests/imageContants";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import Body from "../atoms/typography/Body";
-import ThemeToggle from "./Themetoggle";
 import { FaBars } from "react-icons/fa";
 import { motion } from "framer-motion";
+import ThemeToggle from "./Themetoggle";
+import { ELECRO_LOGHT_LOGO, ELECRO_LOGO } from "@/assests/imageContants";
 
-const Header = () => {
+interface HeaderProps {
+  onLinkClick: (section: string) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onLinkClick }) => {
   const { theme, activeTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const headingOptions = [
-    { id: 0, title: "Home", onClick: () => {} },
-    { id: 1, title: "Tutorial", onClick: () => {} },
-    { id: 2, title: "About", onClick: () => {} },
-    { id: 3, title: "Contact", onClick: () => {} },
+    { id: 0, title: "Home", onClick: () => onLinkClick("Home") },
+    { id: 1, title: "Tutorial", onClick: () => onLinkClick("Tutorial") },
+    { id: 2, title: "About", onClick: () => onLinkClick("About") },
+    { id: 3, title: "Contact", onClick: () => onLinkClick("Contact") },
   ];
 
   const toggleMenu = () => {
@@ -45,7 +48,7 @@ const Header = () => {
 
   return (
     <div
-      className={`flex justify-between items-center space-x-2 px-6 py-4 md:px-32 fixed w-full`}
+      className="flex justify-between items-center space-x-2 px-6 py-4 md:px-32 fixed w-full"
       style={{
         backgroundImage: `linear-gradient(to right, ${theme?.colors?.surface?.secondary}, ${theme?.colors?.surface?.tertiary})`,
       }}
@@ -64,21 +67,20 @@ const Header = () => {
           onClick={toggleMenu}
         />
       </div>
-      <div className={`md:flex hidden justify-end items-center space-x-4`}>
-        {headingOptions?.map((item) => (
-          <div key={item?.id}>
+      <div className="md:flex hidden justify-end items-center space-x-4">
+        {headingOptions.map((item) => (
+          <div key={item.id} onClick={item.onClick}>
             <Body
-              body={item?.title}
+              body={item.title}
               textColor={theme?.colors?.text?.primary}
               size="medium"
               variant="bold"
-              className={`cursor-pointer`}
+              className="cursor-pointer"
             />
           </div>
         ))}
         <ThemeToggle />
       </div>
-      {/* {isMenuOpen && ( */}
       <motion.nav
         animate={isMenuOpen ? "open" : "closed"}
         variants={{
@@ -90,22 +92,21 @@ const Header = () => {
           backgroundImage: `linear-gradient(to top, ${theme?.colors?.surface?.secondary}, ${theme?.colors?.surface?.tertiary})`,
           borderColor: theme?.colors?.text?.invertPrimary,
         }}
-        className={`absolute top-16 right-6 bg-white shadow-lg rounded-lg px-8 py-4 md:hidden z-10 border-2 `}
+        className="absolute top-16 right-6 bg-white shadow-lg rounded-lg px-8 py-4 md:hidden z-10 border-2"
       >
-        {headingOptions?.map((item) => (
-          <div key={item?.id} className="py-2">
+        {headingOptions.map((item) => (
+          <div key={item.id} className="py-2" onClick={item.onClick}>
             <Body
-              body={item?.title}
+              body={item.title}
               textColor={theme?.colors?.text?.primary}
               size="medium"
               variant="bold"
-              className={`cursor-pointer`}
+              className="cursor-pointer"
             />
           </div>
         ))}
         <ThemeToggle />
       </motion.nav>
-      {/* )} */}
     </div>
   );
 };
