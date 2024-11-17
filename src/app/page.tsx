@@ -4,25 +4,29 @@ import Header from "@/components/molecules/Header";
 import Home from "@/components/organisms/Home";
 import Contact from "@/components/organisms/Contact";
 import Tutorial from "@/components/organisms/Tutorial";
-import About from "@/components/organisms/About";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const App = () => {
   const homeRef = useRef<HTMLDivElement>(null);
   const tutorialRef = useRef<HTMLDivElement>(null);
-  const aboutRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="bg-blue-300">
+    <div
+      className="bg-blue-300"
+      style={{
+        background: theme?.colors?.surface?.webBg,
+      }}
+    >
       <Header
         onLinkClick={(section: string) => {
           if (section === "Home") scrollToSection(homeRef);
           if (section === "Tutorial") scrollToSection(tutorialRef);
-          if (section === "About") scrollToSection(aboutRef);
           if (section === "Contact") scrollToSection(contactRef);
         }}
       />
@@ -32,9 +36,7 @@ const App = () => {
       <div ref={tutorialRef}>
         <Tutorial />
       </div>
-      <div ref={aboutRef}>
-        <About />
-      </div>
+
       <div ref={contactRef}>
         <Contact />
       </div>

@@ -170,7 +170,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="md:px-32 py-8">
-      <Heading heading="Get in touch" size="xl" customStyles="text-center" />
+      <Heading heading="Contact" size="xl" customStyles="text-center" />
 
       <div className="mt-4 flex justify-center flex-wrap items-center space-x-2 space-y-2">
         {socialMediaPlatforms.map((item) => (

@@ -3,7 +3,8 @@ export const lightTheme = {
     surface: {
       primary: "#340f61",
       secondary: "#6366f1",
-      tertiary: " #3b82f6",
+      tertiary: " #054360",
+      webBg: "#33bcff",
     },
     info: { primary: "#0070f3" },
     text: {
@@ -32,7 +33,8 @@ export const darkTheme = {
     surface: {
       primary: "#333652",
       secondary: "#ebeced",
-      tertiary: "#808080",
+      tertiary: "#55c4f8",
+      webBg: "#4d7385",
     },
     info: { primary: "#fad12d" },
     text: {

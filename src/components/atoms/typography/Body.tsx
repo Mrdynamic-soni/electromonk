@@ -1,3 +1,4 @@
+import { useTheme } from "@/contexts/ThemeContext";
 import React from "react";
 
 interface BodyProps {
@@ -17,6 +18,7 @@ const Body: React.FC<BodyProps> = ({
   styles,
   textColor,
 }) => {
+  const { theme } = useTheme();
   const variants = {
     bold: "font-bold",
     semibold: "font-semibold",
@@ -34,7 +36,7 @@ const Body: React.FC<BodyProps> = ({
       className={`${className} ${size && sizes[size]} ${
         variant && variants[variant]
       } ${styles}`}
-      style={{ color: textColor }}
+      style={{ color: textColor || theme.colors.text.primary }}
     >
       {body}
     </p>

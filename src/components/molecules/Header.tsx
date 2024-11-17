@@ -20,7 +20,6 @@ const Header: React.FC<HeaderProps> = ({ onLinkClick }) => {
   const headingOptions = [
     { id: 0, title: "Home", onClick: () => onLinkClick("Home") },
     { id: 1, title: "Tutorial", onClick: () => onLinkClick("Tutorial") },
-    { id: 2, title: "About", onClick: () => onLinkClick("About") },
     { id: 3, title: "Contact", onClick: () => onLinkClick("Contact") },
   ];
 
@@ -59,6 +58,7 @@ const Header: React.FC<HeaderProps> = ({ onLinkClick }) => {
         height={50}
         width={50}
         className="rounded-full"
+        onClick={() => onLinkClick("Home")}
       />
       <div className="flex md:hidden">
         <FaBars
