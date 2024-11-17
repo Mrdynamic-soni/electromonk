@@ -1,7 +1,7 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import React from "react";
 
-interface BodyProps {
+interface BodyProps extends React.HTMLAttributes<HTMLParagraphElement> {
   body: string;
   variant?: "bold" | "semibold" | "regular";
   size?: "small" | "medium" | "large";
@@ -17,6 +17,7 @@ const Body: React.FC<BodyProps> = ({
   className = "",
   styles,
   textColor,
+  ...rest
 }) => {
   const { theme } = useTheme();
   const variants = {
@@ -37,6 +38,7 @@ const Body: React.FC<BodyProps> = ({
         variant && variants[variant]
       } ${styles}`}
       style={{ color: textColor || theme.colors.text.primary }}
+      {...rest} // Spread the remaining props
     >
       {body}
     </p>

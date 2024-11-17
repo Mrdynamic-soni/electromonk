@@ -5,6 +5,7 @@ import Home from "@/components/organisms/Home";
 import Contact from "@/components/organisms/Contact";
 import Tutorial from "@/components/organisms/Tutorial";
 import { useTheme } from "@/contexts/ThemeContext";
+import Footer from "@/components/organisms/Footer";
 
 const App = () => {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -40,6 +41,7 @@ const App = () => {
       <div ref={contactRef}>
         <Contact />
       </div>
+      <Footer />
     </div>
   );
 };
