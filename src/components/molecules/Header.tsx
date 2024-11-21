@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({ onLinkClick }) => {
 
   return (
     <div
-      className="flex justify-between items-center space-x-2 px-6 py-4 md:px-32 fixed w-full"
+      className="flex justify-between items-center gap-x-2 px-6 py-4 md:px-32 fixed w-full"
       style={{
         backgroundImage: `linear-gradient(to right, ${theme?.colors?.surface?.secondary}, ${theme?.colors?.surface?.tertiary})`,
       }}
@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ onLinkClick }) => {
           onClick={toggleMenu}
         />
       </div>
-      <div className="md:flex hidden justify-end items-center space-x-4">
+      <div className="md:flex hidden justify-end items-center gap-x-4">
         {headingOptions.map((item) => (
           <div key={item.id} onClick={item.onClick}>
             <Body

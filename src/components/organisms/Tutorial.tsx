@@ -42,7 +42,7 @@ const Tutorial = () => {
         weight="bold"
       />
 
-      <div className="flex flex-wrap justify-between space-x-1 space-y-4">
+      <div className="flex flex-wrap justify-between gap-x-1 gap-y-4">
         {tutorials
           .filter((item) => item.type === "regular") // Filter for regular videos
           .map((item: YoutubeVideoInterface, index: number) => (

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       className="fixed bottom-0 w-full text-white text-center px-2 py-1"
       style={{ background: theme?.colors?.surface?.secondary }}
     >
-      <div className="flex justify-center space-x-2 flex-wrap">
+      <div className="flex justify-center gap-x-2 flex-wrap">
         <Body
           body="© 2024 Your Website. All rights reserved. Developed with ❤️ by "
           size="medium"

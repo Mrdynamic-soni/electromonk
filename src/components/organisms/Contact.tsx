@@ -169,14 +169,14 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <div className="md:px-32 py-8">
+    <div className="md:px-32 py-8 mb-8">
       <Heading heading="Contact" size="xl" customStyles="text-center" />
 
-      <div className="mt-4 flex justify-center flex-wrap items-center space-x-2 space-y-2">
+      <div className="mt-4 flex justify-center flex-wrap items-center gap-x-2 gap-y-2">
         {socialMediaPlatforms.map((item) => (
           <button
             key={item.id}
-            className="flex justify-start items-center space-x-4 w-max px-6 py-3 rounded-md transition-all duration-300 hover:scale-105"
+            className="flex justify-start items-center gap-x-4 w-max px-6 py-3 rounded-md transition-all duration-300 hover:scale-105"
             onClick={item.onPressAction}
             style={{
               backgroundImage: `linear-gradient(to right, ${theme?.colors?.surface?.secondary}, ${theme?.colors?.surface?.tertiary})`,
