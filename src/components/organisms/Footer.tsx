@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
         />
         <Body
           onClick={() => {
-            // window.open("https://portfolio-mrdynamic-soni.vercel.app/");
+            window.open("https://saurabhsoni-pi.vercel.app/");
           }}
           body="Saurabh Soni"
           size="medium"
